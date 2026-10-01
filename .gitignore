@@ -1,0 +1,7 @@
+node_modules/
+dist/
+tests/out/
+tests/fx/
+__pycache__/
+*.pyc
+.DS_Store

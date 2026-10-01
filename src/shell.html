@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' blob:; worker-src blob:; style-src 'unsafe-inline'; img-src data: blob:; font-src data: blob:; connect-src blob: data:; base-uri 'none'; form-action 'none'">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="PDF Updater">
+<title>PDF Change Updater</title>
+<style>/*CSS*/</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Document updater</p>
+    <h1>Update a PDF</h1>
+    <p class="lede">Apply a reviewer’s comments, or mark changes yourself. Your file stays on this device.</p>
+    <ol class="steps" id="steps" aria-label="Progress">
+      <li data-s="1" class="on"><span class="n">1</span>Add PDF</li>
+      <li data-s="2"><span class="n">2</span>Check changes</li>
+      <li data-s="3"><span class="n">3</span><span>Compare<span class="long"> and download</span></span></li>
+    </ol>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- step 1 -->
+  <section id="start">
+    <div id="drop" class="panel drop" tabindex="0" role="button" aria-label="Choose a PDF">
+      <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M12 18v-6M9 15l3-3 3 3"/></svg>
+      <strong>Choose a PDF</strong>
+      <span>or drop it here. A marked-up copy brings its comments in; a clean copy lets you mark changes yourself.</span>
+      <input id="file" type="file" accept="application/pdf,.pdf" hidden>
+    </div>
+    <p class="err" id="err" role="alert"></p>
+
+    <section class="panel" id="historyPanel">
+      <div class="phead"><h2 class="ptitle">History</h2><span class="foot" id="usage"></span></div>
+      <div id="history"><p class="empty">Updated PDFs you download are kept here, so you can get any version back.</p></div>
+      <p class="foot">Saved in this browser only. Clearing browsing data removes it, so keep the files you download too.</p>
+    </section>
+  </section>
+
+  <!-- steps 2 and 3 -->
+  <section id="work" hidden>
+    <div class="banner" id="banner" hidden></div>
+    <div class="grid">
+      <div class="panel viewer">
+        <div class="vbar">
+          <div class="seg" role="tablist" aria-label="Page view">
+            <button role="tab" data-v="before" class="on">Original</button>
+            <button role="tab" data-v="after" disabled>Updated</button>
+            <button role="tab" data-v="both" disabled>Side by side</button>
+          </div>
+          <button class="btn sm" id="markBtn" aria-pressed="false">Mark a change</button>
+        </div>
+        <p class="hint" id="hint">Drag across anything on the page to change it.</p>
+        <div id="pages"></div>
+      </div>
+      <div class="list">
+        <div class="done" id="done" hidden></div>
+        <div class="lhead"><h2 id="listTitle">Changes</h2></div>
+        <div class="listopts">
+          <div class="filters" role="group" aria-label="Show">
+            <button class="pill" data-f="attn" aria-pressed="true">To check<b id="cAttn">0</b></button>
+            <button class="pill" data-f="all" aria-pressed="false">All<b id="cAll">0</b></button>
+          </div>
+          <label class="tog"><input type="checkbox" id="strip" checked> Remove reviewer comments</label>
+        </div>
+        <div id="cards"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="bar" id="bar" hidden><div class="wrap barin">
+  <div class="sum" id="sum" aria-live="polite"></div>
+  <div class="actions">
+    <button class="btn" id="restart">Start over</button>
+    <button class="btn" id="both" hidden>Download both</button>
+    <button class="btn primary" id="go">Preview changes</button>
+  </div>
+</div></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>/*PDFJS*/</script>
+<script>/*PDFLIB*/</script>
+<script>/*FONTKIT*/</script>
+<script>window.__WORKER="/*WORKER*/";window.__FONTS=/*FONTS*/;</script>
+<script>/*APP*/</script>
+</body>
+</html>
