@@ -212,6 +212,68 @@ body.working .steps{margin-top:8px}
   .steps li{font-size:12px;padding-right:10px}
   .steps .long{display:none}
 }
+
+/* --- compact pass --- */
+body{font-size:15px;line-height:20px}
+body.working .top{padding:10px 0 0}
+body.working .top .wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+body.working h1{font:700 17px/22px var(--sans);margin:0}
+body.working .steps{margin:0}
+.steps li{height:26px;font-size:12px;gap:6px;padding:0 10px 0 3px}
+.steps li .n{width:20px;height:20px;font-size:11px}
+main{padding-top:12px}
+#work .grid{gap:14px}
+.panel.viewer{padding:8px}
+.vbar{position:sticky;top:-8px;z-index:2;background:var(--surface);padding:0 0 6px;margin:0}
+.seg button{min-height:28px;padding:4px 10px;font-size:12px}
+.btn{min-height:34px;font-size:14px;padding:0 14px}
+.btn.sm{min-height:28px;font-size:12px;padding:0 10px}
+.hint{font-size:12px;line-height:16px;margin:2px 2px 6px}
+.pagerow{gap:6px;margin-bottom:8px}
+.lhead{margin:0 0 6px}
+.lhead h2{font:600 17px/22px var(--sans)}
+.listopts{margin:0 0 8px}
+.pill{min-height:28px;font-size:12px;padding:0 10px}
+.card{padding:10px 12px;margin-bottom:8px;border-radius:var(--r-md)}
+.ctop{margin-bottom:2px}
+.meta{font-size:10px}
+.badge{font-size:11px;line-height:14px;padding:1px 6px}
+.note{font-size:15px;line-height:20px;margin:0 0 2px}
+.marked{font-size:12px;line-height:16px;margin:0 0 4px}
+.why{font-size:13px;line-height:18px;margin:0 0 6px;color:var(--ink-soft)}
+.cmp{margin:4px 0 6px;gap:6px}
+.cmp figcaption{font-size:10px;margin-bottom:2px}
+.cmp img{max-height:90px;object-fit:contain;object-position:left center}
+.fields{gap:6px 8px;margin-top:6px}
+.fields label{font-size:12px}
+select,input[type=text],textarea{font-size:15px;line-height:20px;padding:5px 8px;min-height:34px}
+.opts{gap:4px;margin-top:6px}
+.tog{font-size:13px;line-height:18px}
+.tog input{width:16px;height:16px}
+.tip{font-size:12px;line-height:16px;margin:4px 0 0}
+.crow{margin-top:6px;gap:6px}
+.fold{font-size:12px;padding:2px 0;min-height:24px}
+#done{padding:8px 12px;margin-bottom:8px}
+#done strong{font-size:15px;line-height:20px}
+.bar{padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.sum{font-size:13px}
+@media (max-width:900px){
+  .viewer{max-height:48vh}
+}
+@media (max-width:600px){
+  .sum{width:auto;flex:1 1 100%}
+  main{padding-bottom:120px}
+  .cmp{grid-template-columns:1fr 1fr}
+}
+/* phones: keep 16px inputs (iOS zooms on smaller) and real touch targets */
+@media (pointer:coarse){
+  select,input[type=text],textarea{font-size:16px}
+  .btn,.btn.sm,.seg button,.pill{min-height:40px}
+  .fold{min-height:36px}
+  .tog input{width:20px;height:20px}
+}
+.cmp img{max-height:56px;width:auto;max-width:100%}
+.card:has(.cmp img) .marked{display:none}
 </style>
 </head>
 <body>

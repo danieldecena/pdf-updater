@@ -1,6 +1,6 @@
 """Inline the app, libraries, worker and subsetted fonts into one offline file: dist/index.html."""
 import base64, json, os
-d='/home/claude/updater/'
+d=os.path.dirname(os.path.abspath(__file__))+'/'
 def rd(p): return open(d+p, encoding='utf-8').read()
 def js(p): return rd(p).replace('</script','<\\/script')
 fonts={}
